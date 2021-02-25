@@ -1,18 +1,5 @@
-# 팰린드롬/ 회문
+# 소수를 판별하는 프로그램 만들기
+# 소수면 YES 소수가 아니면 NO
 
-a = 'level'
+number = input()
 
-b = 'apple'
-
-# if a == a[::-1]:
-#     print('회문 OK')
-# else:
-#     print('회문 아님')
-
-
-c = []
-
-for i in a:
-    c.append(i)
-
-print(c)
