@@ -5,11 +5,33 @@
 # ex) 97 86 75 66 55 97 85 97 97 95
 
 
-# # socres = list(map(int, input().split()))
-# scores = [97, 86, 75, 66, 55, 97, 85, 97, 97, 95]
+# socres = list(map(int, input().split()))
+scores = [97, 86, 75, 66, 55, 97, 85, 97, 97, 95]
 
-# scores_sorted = sorted(scores)
-# count = 3
+set_scores = set(scores)
+# {97, 66, 75, 85, 86, 55, 95}
+count = 0
 
-# for score in scores_sorted:
-#     if 
+for i in range(3):
+    max_value = max(set_scores) # 97
+    count += scores.count(max_value)
+    set_scores.remove(max_value)
+
+print(count)
+
+
+user_input = input()
+
+l = list(user_input.strip().split())
+l = [int (i) for i in l]
+
+count = 3
+#3개는 무조건 구매, 배열 정렬 후 1~3위 중 중복되는 숫자까지 포함
+
+data_sorted = sorted(list(l))
+
+print(data_sorted)
+for i in range(len(l)-1, 0, -1):
+	if data_sorted[-3] == l[i]:
+		count += 1
+print(count)
