@@ -27,6 +27,7 @@ class Solution:
                 strs.append(char)
         return strs == strs[::-1]
 
+# 시간 복잡도 O(n) 생각보다 굉장히 빠름 // 슬라이싱 기능이 굉장히 빠르다고 한다.
 
 # 정규식 이용 답안
 
@@ -36,3 +37,5 @@ class Solution_2:
         #정규식으로 불필요한 문자 필터링
         s = re.sub('[^a-z0-9]', '',s)
         return s == s[::-1]
+
+# 비슷한 속도를 보여줌
