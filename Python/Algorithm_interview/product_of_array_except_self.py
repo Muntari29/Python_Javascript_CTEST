@@ -4,30 +4,24 @@
 Input: nums = [1,2,3,4]
 Output: [24,12,8,6]
 '''
+from typing import List
 
 nums = [1,2,3,4]
-result = []
-p = 1
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
+        result = []
 
-for i in range(0, len(nums)):
-    result.append(p)
-    p = p * nums[i]
+        # 위 이미지에서의 1번 왼쪽 곱샘 결과
+        p = 1
 
-print(result)
-print(p)
+        for i in range(0, len(nums)):
+            result.append(p)
+            p = p * nums[i]
 
-box = result
+        # 위 이미지에서의 2번 오른쪽 곱샘 결과 + result 변수 재활용!
+        p = 1
+        for i in range(len(nums)-1, -1, -1):
+            result[i] = result[i] * p
+            p = p * nums[i]
 
-p = 1
-for i in range(len(nums)-1, -1, -1):
-    box[i] = result[i] * p
-    p = p * nums[i]
-
-print(result)
-print(p)
-
-
-# class Solution:q
-#     def productExceptSelf(self, nums: List[int]) -> List[int]:
-
-        
+        return result
