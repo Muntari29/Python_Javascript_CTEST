@@ -14,6 +14,20 @@ class LinkedList:
         self.head = None  # 링크드 리스트의 가장 앞 노드
         self.tail = None  # 링크드 리스트의 가장 뒤 노드
 
+    def prepend(self, data):
+        """링크드 리스트 가장 앞에 데이터를 추가시켜주는 메소드"""
+        # 코드를 쓰세요
+        new_node = Node(data)
+        head_node = self.head
+        
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            head_node.prev = new_node
+            new_node.next = head_node
+            self.head = new_node
+
     def insert_after(self, previous_node, data):
         """링크드 리스트 추가 연산 메소드"""
         # 코드를 쓰세요
