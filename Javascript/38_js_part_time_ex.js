@@ -27,6 +27,8 @@ let box = [];
 while (box.length < 3){
     // 정렬된 배열의 맨 마지막 값을 삭제하며 삭제하는 값을 data로 선언
     let data = scores.pop()
+    // 가장 높은 점수(맨마지막값)이 box내에 존재한다면 카운트를 1증가시킴
+    // 1 ~ 3위까지만 사탕을 주므로 box의 길이가 3이 되는 순간부터 반복문 종료
     if (!box.includes(data)){
         box.push(data)
         console.log(box);
