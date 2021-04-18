@@ -1,20 +1,14 @@
-import collections
-
 def solution(phone_book):
     answer = True
-    my_dict = collections.Counter(phone_book)
+    my_dict = set(phone_book)
 
     for phone in phone_book:
-        for key in my_dict.keys():
-            print(phone)
-            print(key)
+        for key in my_dict:
             hash_phone = hash(phone)
             hash_key = hash(key)
-            print(hash_phone, hash_key)
-            if phone in key and hash_phone != hash_key:
+            if phone.startswith(key) and hash_phone != hash_key: 
                 answer = False
-            
 
-    return print(answer)
+    return answer
 
-solution(["119", "97674223", "1195524421"])
+solution(["123","456","789"])
