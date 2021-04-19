@@ -1,20 +1,22 @@
-import collections
+def solution2(phone_book):
+    answer = True
+    hash_map = set(phone_book)
+    for phone_number in phone_book:
+        temp = ""
+        for number in phone_number:
+            temp += number
+            if temp in hash_map and temp != phone_number:
+                answer = False
+    return answer
+
+# 해시를 사용하지 않은 풀이
 
 def solution(phone_book):
+    phone_book.sort()
     answer = True
-    my_dict = collections.Counter(phone_book)
+    
+    for number in range(0, len(phone_book)-1):
+        if phone_book[number+1].startswith(phone_book[number]):
+            return False
 
-    for phone in phone_book:
-        for key in my_dict.keys():
-            print(phone)
-            print(key)
-            hash_phone = hash(phone)
-            hash_key = hash(key)
-            print(hash_phone, hash_key)
-            if phone in key and hash_phone != hash_key:
-                answer = False
-            
-
-    return print(answer)
-
-solution(["119", "97674223", "1195524421"])
+    return answer
