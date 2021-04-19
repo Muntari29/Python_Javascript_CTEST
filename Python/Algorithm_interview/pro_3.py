@@ -1,14 +1,22 @@
-def solution(phone_book):
+def solution2(phone_book):
     answer = True
-    my_dict = set(phone_book)
-
-    for phone in phone_book:
-        for key in my_dict:
-            hash_phone = hash(phone)
-            hash_key = hash(key)
-            if phone.startswith(key) and hash_phone != hash_key: 
+    hash_map = set(phone_book)
+    for phone_number in phone_book:
+        temp = ""
+        for number in phone_number:
+            temp += number
+            if temp in hash_map and temp != phone_number:
                 answer = False
-
     return answer
 
-solution(["123","456","789"])
+# 해시를 사용하지 않은 풀이
+
+def solution(phone_book):
+    phone_book.sort()
+    answer = True
+    
+    for number in range(0, len(phone_book)-1):
+        if phone_book[number+1].startswith(phone_book[number]):
+            return False
+
+    return answer
