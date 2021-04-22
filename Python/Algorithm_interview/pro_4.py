@@ -41,5 +41,25 @@ def solution(scoville, K):
     answer = 0
     count = 1
     tree = [None] + scoville
+    '''heapify 반복으로 힙 트리 만들어주기'''
+    for i in range(len(tree), 0, -1):
+        heapify(tree, i, len(tree))
+    print(tree)
+    heap_sort(tree)
+    print(tree)
+
+    while True:
+        print(tree)
+        number_1 = tree.pop()
+        number_2 = tree.pop()
+        scoville_number = number_1 + (number_2 * 2)
+        tree.append(scoville_number)
+        answer += 1
+        
+        if scoville_number >= 7:
+            tree.append(scoville_number)
+            answer += 1
+            break
+        tree.append(scoville_number)   
 
     return print(answer)
