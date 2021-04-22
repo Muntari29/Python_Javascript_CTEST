@@ -1,4 +1,4 @@
-# 힙 삽입 구현
+# 힙 우선순위 큐 삽입 구현
 
 def swap(tree, index_1, index_2):
     """완전 이진 트리의 노드 index_1과 노드 index_2의 위치를 바꿔준다"""
