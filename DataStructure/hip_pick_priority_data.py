@@ -2,7 +2,7 @@
 # 우선순위 데이터 추출 (삭제)
 
 # 이전 메서드 재사용
-from hip_insert import reverse_heapify
+from hip_pick_priority_insert import reverse_heapify
 from hip_sort import swap, heapify
 
 class PriorityQueue:
