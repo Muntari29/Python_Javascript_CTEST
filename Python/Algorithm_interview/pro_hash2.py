@@ -1,3 +1,6 @@
+# 프로그래머스 해쉬 2번 문제
+# 전화 번호 목록 
+
 def solution2(phone_book):
     answer = True
     hash_map = set(phone_book)
