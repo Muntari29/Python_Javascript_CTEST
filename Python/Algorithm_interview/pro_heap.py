@@ -79,7 +79,7 @@ solution(tree, 7)
 
 import heapq
 
-def solution(scoville, K):
+def solution2(scoville, K):
     answer = 0
     # 배열을 힙으로 변환
     heapq.heapify(scoville)
