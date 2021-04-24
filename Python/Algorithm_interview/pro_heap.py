@@ -77,4 +77,24 @@ solution(tree, 7)
 
 # python heapq 라이브러리 솔루션
 
+import heapq
 
+def solution(scoville, K):
+    answer = 0
+    # 배열을 힙으로 변환
+    heapq.heapify(scoville)
+
+    # 0번째 인덱스가 가장 작은 값(min heap)
+    # 기본적으로 heapq는 min heap을 default로 함
+    while True:
+        if len(scoville) == 1:
+            return -1
+        number_1 = heapq.heappop(scoville)
+        if number_1 >= K:
+            break
+        number_2 = heapq.heappop(scoville)
+        scoville_number = number_1 + (number_2 * 2)
+        heapq.heappush(scoville, scoville_number)
+        answer += 1
+        
+    return answer
