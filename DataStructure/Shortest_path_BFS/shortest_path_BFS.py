@@ -1,9 +1,8 @@
-# BFS 최단 경로 변경
+# BFS 최단 경로 알고리즘
 
 from collections import deque
 from subway_graph import *
 
-# 코드를 추가하세요
 def bfs(graph, start_node):
     """최단 경로용 bfs 함수"""
     queue = deque()  # 빈 큐 생성
@@ -22,13 +21,23 @@ def bfs(graph, start_node):
         for neighbor in current_station.adjacent_stations:  # 인접한 노드를 돌면서
             if not neighbor.visited:  # 방문하지 않은 노드면
                 neighbor.visited = True  # 방문 표시를 하고
+                neighbor.predecessor = current_station # BFS에서 추가된 부분!!! 
                 queue.append(neighbor)  # 큐에 넣는다
 
 
 def back_track(destination_node):
     """최단 경로를 찾기 위한 back tracking 함수"""
     res_str = ""  # 리턴할 결과 문자열
-    # 코드를 쓰세요
+    node = destination_node
+    
+    while node is not None:
+        # 찾고자하는 최단 경로의 마지막 노드를 파라미터로 받기 때문에
+        # 3 2 1 => 출력 결과를 1 2 3 으로 변경해줌
+        # res_str = node.station_name + " " + res_str
+        res_str = f'{node.station_name} {res_str}'
+        node = node.predecessor
+    
+    return res_str
 
 
 stations = create_station_graph("./new_stations.txt")  # stations.txt 파일로 그래프를 만든다
